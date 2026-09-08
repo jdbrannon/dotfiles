@@ -56,6 +56,7 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+bindkey ' ' magic-space
 
 # History
 HISTSIZE=5000
@@ -77,12 +78,49 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+# Open buffer line in editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+
 # Aliases
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+# Suffix Aliases
+alias -s md="bat"
+alias -s mov="open"
+alias -s png="open"
+alias -s mp4="open"
+alias -s go="$EDITOR"
+alias -s js="$EDITOR"
+alias -s ts="$EDITOR"
+alias -s yaml="$EDITOR"
+alias -s yml="$EDITOR"
+alias -s json="jless"
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# Editor
+export VISUAL=/usr/bin/nvim
+export EDITOR=/usr/bin/nvim
+
+
+# Clear screen, keep buffer
+clear-keep-buffer() {
+  zle clear-screen
+}
+zle -N clear-keep-buffer
+bindkey '^XL' clear-keep-buffer
+
+# Copy current command to clipboard
+copy-command() {
+  echo -n $BUFFER | pbcopy
+  zle -M "Copied to clipboard"
+}
+zle -N copy-command
+bindkey '^XC' copy-command
