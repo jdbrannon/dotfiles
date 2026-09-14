@@ -84,7 +84,7 @@ zle -N edit-command-line
 bindkey '^X^E' edit-command-line
 
 # Aliases
-alias ls='ls --color'
+alias ls='exa'
 alias vim='nvim'
 alias c='clear'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
