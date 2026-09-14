@@ -58,6 +58,27 @@ bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
 bindkey ' ' magic-space
 
+# Standard navigation keys (Home, End, Delete)
+bindkey "${terminfo[khome]}" beginning-of-line      # Home
+bindkey "^[[H"               beginning-of-line      # Home (fallback)
+bindkey "^[OH"               beginning-of-line      # Home (xterm fallback)
+bindkey "^[[1~"              beginning-of-line      # Home (vt fallback)
+bindkey "^[[7~"              beginning-of-line      # Home (urxvt fallback)
+
+bindkey "${terminfo[kend]}"  end-of-line            # End
+bindkey "^[[F"               end-of-line            # End (fallback)
+bindkey "^[OF"               end-of-line            # End (xterm fallback)
+bindkey "^[[4~"              end-of-line            # End (vt fallback)
+bindkey "^[[8~"              end-of-line            # End (urxvt fallback)
+
+bindkey "${terminfo[kdch1]}" delete-char            # Delete
+bindkey "^[[3~"              delete-char            # Delete (fallback)
+
+# Word jumps with Ctrl+Left / Ctrl+Right (Optional bonus)
+bindkey "^[[1;5C"            forward-word           # Ctrl+Right
+bindkey "^[[1;5D"            backward-word          # Ctrl+Left
+
+
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -88,6 +109,7 @@ alias ls='exa'
 alias vim='nvim'
 alias c='clear'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+compdef _git dotfiles
 
 # Suffix Aliases
 alias -s md="bat"
@@ -108,7 +130,6 @@ eval "$(zoxide init --cmd cd zsh)"
 # Editor
 export VISUAL=/usr/bin/nvim
 export EDITOR=/usr/bin/nvim
-
 
 # Clear screen, keep buffer
 clear-keep-buffer() {
