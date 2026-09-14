@@ -108,8 +108,9 @@ bindkey '^X^E' edit-command-line
 alias ls='exa'
 alias vim='nvim'
 alias c='clear'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-compdef _git dotfiles
+alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+compdef _git dots
+alias ldots='lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 # Suffix Aliases
 alias -s md="bat"
