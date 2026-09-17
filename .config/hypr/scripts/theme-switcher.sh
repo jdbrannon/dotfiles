@@ -24,12 +24,12 @@ if (( ${#wallpapers[@]} == 0 )); then
   exit 1
 fi
 
-choices=()
-for wallpaper in "${wallpapers[@]}"; do
-  choices+=("$(basename "$wallpaper")")
-done
-
-selected=$(printf '%s\n' "${choices[@]}" | rofi -dmenu -i -p "Theme") || exit 0
+selected=$(
+  for wallpaper in "${wallpapers[@]}"; do
+    name="$(basename "$wallpaper")"
+    printf '%s\0icon\x1f%s\n' "$name" "$wallpaper"
+  done | rofi -dmenu -i -show-icons -p "Theme"
+) || exit 0
 [[ -n "$selected" ]] || exit 0
 
 wallpaper="$wallpaper_dir/$selected"

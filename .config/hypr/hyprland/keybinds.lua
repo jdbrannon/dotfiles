@@ -4,7 +4,7 @@
 
 -- Set programs that you use
 local terminal    = "kitty"
-local fileManager = "dolphin"
+local fileManager = "thunar"
 local launcher    = "rofi -show drun -show-icons"
 local runner      = "rofi -show run"
 local browser     = "brave"
@@ -33,6 +33,11 @@ hl.bind(secondMod .. " + PRINT", hl.dsp.exec_cmd("hyprshot --freeze -m region"))
 
 -- Theme switcher (pick wallpaper, regenerate colors with matugen)
 hl.bind(secondMod .. " + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/theme-switcher.sh"))
+
+-- Power menu / audio visualizer
+hl.bind(mainMod .. " + Escape",
+  hl.dsp.exec_cmd("pgrep -x wlogout >/dev/null && pkill -x wlogout || wlogout"))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("kitty --class cava -e cava"))
 
 -- Close windows/Hyprland
 hl.bind(mainMod .. " + C", hl.dsp.window.close())

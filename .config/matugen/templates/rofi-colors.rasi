@@ -1,0 +1,13 @@
+/*
+ * Rofi colors
+ * Generated with Matugen
+ */
+* {
+    bg-col:        {{colors.background.default.hex}};
+    bg-col-light:  {{colors.surface_container.default.hex}};
+    fg-col:        {{colors.on_background.default.hex}};
+    fg-col2:       {{colors.on_surface_variant.default.hex}};
+    border-col:    {{colors.outline_variant.default.hex}};
+    accent-col:    {{colors.primary.default.hex}};
+    accent-fg-col: {{colors.on_primary.default.hex}};
+}

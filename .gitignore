@@ -3,3 +3,5 @@
 .config/waybar/colors/generated.css
 .config/kitty/themes/Matugen.conf
 .config/kitty/current-theme.conf
+.config/cava/themes/matugen
+.config/rofi/colors.rasi

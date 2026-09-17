@@ -141,3 +141,11 @@ hl.window_rule({
   float  = true,
   center = true,
 })
+
+hl.window_rule({
+  name   = "cava-float",
+  match  = { class = "cava" },
+  float  = true,
+  center = true,
+  size   = "40% 40%",
+})
