@@ -31,6 +31,9 @@ hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot --freeze -m output"))
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("hyprshot --freeze -m window"))
 hl.bind(secondMod .. " + PRINT", hl.dsp.exec_cmd("hyprshot --freeze -m region"))
 
+-- Theme switcher (pick wallpaper, regenerate colors with matugen)
+hl.bind(secondMod .. " + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/theme-switcher.sh"))
+
 -- Close windows/Hyprland
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(secondMod .. " + C",
