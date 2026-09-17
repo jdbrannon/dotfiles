@@ -146,3 +146,7 @@ copy-command() {
 }
 zle -N copy-command
 bindkey '^XC' copy-command
+
+# Skip comments
+setopt interactive_comments
+

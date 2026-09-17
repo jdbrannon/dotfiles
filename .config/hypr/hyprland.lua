@@ -46,10 +46,10 @@ require("hyprland.input")
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-  hl.exec_cmd("waybar & swww & swaync & hypridle & awww daemon")
+  hl.exec_cmd("waybar & swaync & hypridle & awww-daemon")
   hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 30")
-  h1.exec_cmd("gnome-keyring-daemon --start --components=secrets")
-  h1.exec_cmd("nextcloud --background")
+  hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
+  hl.exec_cmd("nextcloud --background")
 end)
 
 -----------------------
