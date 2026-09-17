@@ -57,10 +57,12 @@
     "tooltip-format-wifi": "{essid} ",
     "tooltip-format-ethernet": "{ifname} ",
     "tooltip-format-disconnected": "Disconnected",
+    "on-click": "networkmanager_dmenu",
+    "on-click-right": "nm-connection-editor",
     "max-length": 50
   },
   "clock": {
-    "format": "{:%I:%M}",
+    "format": "{:%a %I:%M}",
     "tooltip-format": "{calendar}",
     "calendar": {
       "mode": "month",

@@ -24,7 +24,7 @@
 hl.env("XCURSOR_SIZE", "30")
 hl.env("HYPRCURSOR_SIZE", "30")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
-
+hl.env("HYPRSHOT_DIR", os.getenv("HOME") .. "/Screenshots")
 
 -----------------
 ---- Imports ----
@@ -46,7 +46,7 @@ require("hyprland.input")
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-  hl.exec_cmd("waybar & swww & swaync")
+  hl.exec_cmd("waybar & swww & swaync & hypridle & awww daemon")
   hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 30")
   h1.exec_cmd("gnome-keyring-daemon --start --components=secrets")
   h1.exec_cmd("nextcloud --background")
@@ -133,4 +133,11 @@ hl.window_rule({
 
   move  = "20 monitor_h-120",
   float = true,
+})
+
+hl.window_rule({
+  name   = "nm-connection-editor-float",
+  match  = { class = "nm-connection-editor" },
+  float  = true,
+  center = true,
 })

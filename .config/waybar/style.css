@@ -93,8 +93,27 @@ tooltip label {
   color: @yellow;
 }
 
-#pulseaudio-slider higlight {
+#pulseaudio-slider {
+  min-width: 90px;
+  margin-left: 10px;
+}
+
+#pulseaudio-slider trough {
+  background-color: @bg1;
+  min-height: 6px;
+  border-radius: 3px;
+}
+
+#pulseaudio-slider highlight {
   background-color: @yellow;
+  border-radius: 3px;
+}
+
+#pulseaudio-slider slider {
+  background-color: @yellow;
+  min-width: 12px;
+  min-height: 12px;
+  border-radius: 50%;
 }
 
 #network {

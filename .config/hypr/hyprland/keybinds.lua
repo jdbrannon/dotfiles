@@ -17,7 +17,7 @@ local thirdMod = "CTRL + SHIFT"   -- Sets "Ctrl + Shift" as tertiary modifier
 local fourthMod = "SUPER + ALT"   -- Sets "Windows + Alt" as quaternary modifier
 local fifthMod = "CTRL + ALT"     -- Sets "Windows + Ctrl" as quinary modifier
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
+-- Basics Binds
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(fifthMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(fileManager))
@@ -26,9 +26,13 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(music))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(launcher))
 hl.bind(secondMod .. " + Space", hl.dsp.exec_cmd(runner))
 
+-- Screenshot bindings
+hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot --freeze -m output"))
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("hyprshot --freeze -m window"))
+hl.bind(secondMod .. " + PRINT", hl.dsp.exec_cmd("hyprshot --freeze -m region"))
 
+-- Close windows/Hyprland
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
 hl.bind(secondMod .. " + C",
   hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
@@ -59,6 +63,7 @@ hl.bind(secondMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(secondMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 hl.bind(secondMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind(fourthMod .. " + S", hl.dsp.exec_cmd("systemctl suspend"))
+hl.bind(fourthMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
