@@ -37,7 +37,10 @@ wallpaper="$wallpaper_dir/$selected"
 
 pgrep -x awww-daemon >/dev/null || awww-daemon &
 awww img "$wallpaper" --transition-type grow --transition-duration 1
-matugen image "$wallpaper"
+if ! matugen image "$wallpaper" --source-color-index 0; then
+  notify "matugen failed to generate colors for $selected"
+  exit 1
+fi
 ln -sfn "$wallpaper" "$HOME/.config/hypr/current_wallpaper"
 hyprctl reload
 notify "Applied theme: $selected"

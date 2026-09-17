@@ -23,3 +23,8 @@ post_hook = 'pkill -SIGUSR1 cava'
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/colors.rasi'
+
+[templates.nvim]
+input_path = '~/.config/matugen/templates/nvim-colors.vim'
+output_path = '~/.config/nvim/colors/matugen.vim'
+post_hook = 'pkill -SIGUSR1 nvim'
