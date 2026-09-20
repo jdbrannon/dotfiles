@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-wallpaper_dir="${THEME_WALLPAPER_DIR:-/mnt/data/Nextcloud/01-Personal/08-Computer/03-Desktop-Backgrounds/Desktop_Wallpapers}"
+wallpaper_dir="${THEME_WALLPAPER_DIR:-/mnt/data/Nextcloud/01-Personal/08-Computer/03-Desktop-Backgrounds/Current_Desktop_Backgrounds}"
 
 notify() {
   command -v notify-send >/dev/null && notify-send "Theme switcher" "$1"
@@ -19,7 +19,7 @@ fi
 
 shopt -s nullglob
 wallpapers=("$wallpaper_dir"/*.{jpg,jpeg,png,webp,gif,JPG,JPEG,PNG,WEBP,GIF})
-if (( ${#wallpapers[@]} == 0 )); then
+if ((${#wallpapers[@]} == 0)); then
   notify "No wallpapers found in $wallpaper_dir"
   exit 1
 fi

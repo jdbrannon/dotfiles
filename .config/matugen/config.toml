@@ -28,3 +28,8 @@ output_path = '~/.config/rofi/colors.rasi'
 input_path = '~/.config/matugen/templates/nvim-colors.vim'
 output_path = '~/.config/nvim/colors/matugen.vim'
 post_hook = 'pkill -SIGUSR1 nvim'
+
+[templates.swaync]
+input_path = '~/.config/matugen/templates/swaync-colors.css'
+output_path = '~/.config/swaync/colors.css'
+post_hook = 'swaync-client -rs'

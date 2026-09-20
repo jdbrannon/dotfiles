@@ -1,6 +1,6 @@
 [general]
 framerate = 60
-bars = 32
+bars = 0
 autosens = 1
 sensitivity = 100
 

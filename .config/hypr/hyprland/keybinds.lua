@@ -39,6 +39,11 @@ hl.bind(mainMod .. " + Escape",
   hl.dsp.exec_cmd("pgrep -x wlogout >/dev/null && pkill -x wlogout || wlogout"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("kitty --class cava -e cava"))
 
+-- Close blueman-manager/pwvucontrol with Escape if one is focused; non_consuming
+-- means Escape still reaches whatever app is focused otherwise (e.g. Vim).
+hl.bind("Escape", hl.dsp.exec_cmd("~/.config/hypr/scripts/close-overlay-on-escape.sh"),
+  { non_consuming = true })
+
 -- Close windows/Hyprland
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(secondMod .. " + C",

@@ -43,7 +43,7 @@ tooltip label {
 }
 
 #workspaces button.active {
-  background-color: @blue;
+  background-color: @primary;
   color: @bg0;
   min-width: 50px;
   transition: all .3s ease-in-out;
@@ -51,7 +51,7 @@ tooltip label {
 }
 
 #workspaces button:hover {
-  background-color: @purple;
+  background-color: @primary_container;
   color: @bg0;
   border-radius: 16px;
   min-width: 50px;
@@ -59,7 +59,7 @@ tooltip label {
 }
 
 #workspaces button.urgent {
-  background-color: @red;
+  background-color: @error;
   color: @bg0;
   border-radius: 16px;
   min-width: 50px;
@@ -72,6 +72,7 @@ tooltip label {
 #network,
 #clock,
 #tray,
+#custom-power,
 #custom-notification {
   background-color: @bg0;
   padding: 0 15px 0 15px;
@@ -81,16 +82,17 @@ tooltip label {
 }
 
 #clock {
-  color: @blue;
+  color: @primary;
 }
 
-#custom-notification {
+#custom-power {
   color: @fg;
+  padding: 5px 15px 0 15px;
   margin: 12px 12px 0 12px;
 }
 
 #pulseaudio {
-  color: @yellow;
+  color: @secondary;
 }
 
 #pulseaudio-slider {
@@ -105,22 +107,22 @@ tooltip label {
 }
 
 #pulseaudio-slider highlight {
-  background-color: @yellow;
+  background-color: @secondary;
   border-radius: 3px;
 }
 
 #pulseaudio-slider slider {
-  background-color: @yellow;
+  background-color: @secondary;
   min-width: 12px;
   min-height: 12px;
   border-radius: 50%;
 }
 
 #network {
-  color: @purple;
+  color: @primary;
 }
 
 #battery {
-  color: @green;
+  color: @secondary_container;
 }
 
