@@ -33,3 +33,25 @@ post_hook = 'pkill -SIGUSR1 nvim'
 input_path = '~/.config/matugen/templates/swaync-colors.css'
 output_path = '~/.config/swaync/colors.css'
 post_hook = 'swaync-client -rs'
+
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'pkill -USR2 btop || true'
+
+[templates.vesktop-system24]
+input_path = '~/.config/matugen/templates/system24.css'
+output_path = '~/.config/vesktop/themes/system24.css'
+
+[templates.vesktop-system24-transparent]
+input_path = '~/.config/matugen/templates/system24-transparent.css'
+output_path = '~/.config/vesktop/themes/system24-transparent.css'
+
+[templates.vesktop-midnight]
+input_path = '~/.config/matugen/templates/midnight-discord.css'
+output_path = '~/.config/vesktop/themes/midnight-discord.css'
+
+[templates.vesktop-midnight-transparent]
+input_path = '~/.config/matugen/templates/midnight-discord-transparent.css'
+output_path = '~/.config/vesktop/themes/midnight-discord-transparent.css'
+
