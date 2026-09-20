@@ -149,7 +149,7 @@ hl.window_rule({
   size   = "35% 45%",
   -- blueman-manager ignores the size rule and keeps its natural ~1261px width,
   -- so the offset accounts for that rather than the requested 35%.
-  move   = "monitor_w-1281 65",
+  center = true
 })
 
 hl.window_rule({
@@ -157,13 +157,21 @@ hl.window_rule({
   match  = { class = "com.saivert.pwvucontrol" },
   float  = true,
   size   = "35% 45%",
-  move   = "monitor_w-856 65",
+  center = true
 })
 
-hl.window_rule({
-  name   = "cava-float",
-  match  = { class = "cava" },
-  float  = true,
-  center = true,
-  size   = "40% 40%",
-})
+-- hl.window_rule({
+--   name   = "cava-float",
+--   match  = { class = "cava" },
+--   float  = true,
+--   center = true,
+--   size   = "40% 40%",
+-- })
+--
+-- hl.window_rule({
+--   name   = "matrix-float",
+--   match  = { class = "matrix" },
+--   float  = true,
+--   center = true,
+--   size   = "40% 40%",
+-- })

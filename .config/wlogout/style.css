@@ -24,9 +24,9 @@ button {
 }
 
 button:focus, button:active, button:hover {
-    background-color: @blue;
+    background-color: @primary;
     color: @bg0;
-    border-color: @blue;
+    border-color: @primary;
 }
 
 #lock {

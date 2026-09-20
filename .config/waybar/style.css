@@ -64,6 +64,7 @@ tooltip label {
   transition: all .3s ease-in-out;
 }
 
+#pulseaudio,
 #battery,
 #volume,
 #network,

@@ -37,7 +37,9 @@ hl.bind(secondMod .. " + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/theme-switc
 -- Power menu / audio visualizer
 hl.bind(mainMod .. " + Escape",
   hl.dsp.exec_cmd("pgrep -x wlogout >/dev/null && pkill -x wlogout || wlogout"))
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("kitty --class cava -e cava"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("kitty --class cava -e cava"))
+hl.bind(thirdMod .. " + M", hl.dsp.exec_cmd("kitty --class matrix -e unimatrix -i"))
+
 
 -- Close blueman-manager/pwvucontrol with Escape if one is focused; non_consuming
 -- means Escape still reaches whatever app is focused otherwise (e.g. Vim).
@@ -75,7 +77,7 @@ hl.bind(secondMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(secondMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(secondMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 hl.bind(secondMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized" }))
-hl.bind(fourthMod .. " + S", hl.dsp.exec_cmd("systemctl suspend"))
+hl.bind(fourthMod .. " + S", hl.dsp.exec_cmd("hyprlock & systemctl suspend"))
 hl.bind(fourthMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
 -- Switch workspaces with mainMod + [0-9]

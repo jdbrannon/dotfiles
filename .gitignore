@@ -10,3 +10,5 @@
 
 # Machine-specific state, rewritten by theme-switcher.sh
 .config/hypr/current_wallpaper
+
+*api_key*

@@ -4,23 +4,23 @@
     "~/.config/waybar/workspaces.jsonc"
   ],
   "modules-left": [
-    "clock",
-    "tray"
+    "tray",
+    "pulseaudio"
   ],
   "modules-center": [
     "hyprland/workspaces#rw"
   ],
   "modules-right": [
     "media",
-    "group/volume",
     "network",
     "battery",
+    "clock",
     "custom/notification",
     "custom/power"
   ],
   "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon}  {volume}%",
     "format-muted": "",
     "format-icons": {
       "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
@@ -54,7 +54,7 @@
   "network": {
     "interface": "wlan0",
     "format": "{ifname}",
-    "format-wifi": "{essid} ",
+    "format-wifi": "",
     "format-ethernet": "{ifname} ",
     "format-disconnected": "",
     "tooltip-format": "{ifname}",
