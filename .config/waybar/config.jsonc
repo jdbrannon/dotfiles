@@ -1,11 +1,14 @@
 {
   "layer": "top",
+  "include": [
+    "~/.config/waybar/workspaces.jsonc"
+  ],
   "modules-left": [
-    "hyprland/workspaces",
+    "clock",
     "tray"
   ],
   "modules-center": [
-    "clock"
+    "hyprland/workspaces#rw"
   ],
   "modules-right": [
     "media",
@@ -13,38 +16,8 @@
     "network",
     "battery",
     "custom/notification",
-    "power"
+    "custom/power"
   ],
-  "hyprland/workspaces": {
-    "format": "{icon} {name}",
-    "format-focused": "{icon} {name}",
-    "format-occupied": "{icon} {name}",
-    "format-empty": "{icon} {name}",
-    "format-icons": {
-      "1": "󰖟",
-      "2": "󰖠",
-      "3": "󰖡",
-      "4": "󰖢",
-      "5": "󰖣",
-      "6": "󰖤",
-      "7": "󰖥",
-      "8": "󰖦",
-      "9": "󰖧",
-      "10": "󰖨"
-    },
-    "on-click-left": {
-      "command": "hyprctl dispatch workspace {name}",
-      "args": [
-        "{name}"
-      ]
-    },
-    "on-click-right": {
-      "command": "hyprctl dispatch movetoworkspace {name}",
-      "args": [
-        "{name}"
-      ]
-    }
-  },
   "pulseaudio": {
     "format": "{volume}% {icon}",
     "format-bluetooth": "{volume}% {icon}",
@@ -171,5 +144,12 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
+  },
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "$HOME/.config/hypr/scripts/Wlogout.sh",
+    "on-click-right": "$HOME/.config/hypr/scripts/ChangeBlur.sh",
+    "tooltip": true,
+    "tooltip-format": "Logout Menu"
   }
 }

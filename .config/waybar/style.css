@@ -37,24 +37,22 @@ tooltip label {
   padding: 0px 6px;
   margin: 0px 3px;
   border-radius: 50px;
-  color: transparent;
+  color: @grey1;
   background-color: @bg1;
+  min-width: 25px;
   transition: all .3s ease-in-out;
 }
 
 #workspaces button.active {
   background-color: @primary;
   color: @bg0;
-  min-width: 50px;
   transition: all .3s ease-in-out;
-  font-size: 13px;
 }
 
 #workspaces button:hover {
   background-color: @primary_container;
   color: @bg0;
   border-radius: 16px;
-  min-width: 50px;
   background-size: 400% 400%;
 }
 
@@ -62,7 +60,6 @@ tooltip label {
   background-color: @error;
   color: @bg0;
   border-radius: 16px;
-  min-width: 50px;
   background-size: 400% 400%;
   transition: all .3s ease-in-out;
 }
@@ -92,7 +89,7 @@ tooltip label {
 }
 
 #pulseaudio {
-  color: @secondary;
+  color: @primary;
 }
 
 #pulseaudio-slider {
@@ -107,7 +104,7 @@ tooltip label {
 }
 
 #pulseaudio-slider highlight {
-  background-color: @secondary;
+  background-color: @primary;
   border-radius: 3px;
 }
 
