@@ -1,30 +1,37 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -u
 
-loc_response=$(curl -s https://ipinfo.io/loc)
+fallback() {
+  printf '{"text":"?","tooltip":"Weather unavailable"}\n'
+  exit 0
+}
+
+loc_response=$(curl -s --max-time 5 https://ipinfo.io/loc) || fallback
 latitude=$(echo "$loc_response" | cut -d',' -f1)
 longitude=$(echo "$loc_response" | cut -d',' -f2)
+[ -n "$latitude" ] && [ -n "$longitude" ] || fallback
 
-weather_result = $(curl -s "https://api.open-meteo.com/v1/forecast?latitude=latitude&longitude=$longitude&hourly=temperature_2m,weather_code&models=ncep_gfs_seamless&forecast_days=7&temperature_unit=fahrenheit")
+weather_result=$(curl -s --max-time 5 "https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&temperature_unit=fahrenheit") || fallback
 
-case $ICON_CODE in
-"01d") ICON="☀️" ;;         # Clear sky day
-"01n") ICON="🌙" ;;          # Clear sky night
-"02d") ICON="⛅" ;;          # Few clouds day
-"02n") ICON="☁️" ;;         # Few clouds night
-"03d" | "03n") ICON="☁️" ;; # Scattered clouds
-"04d" | "04n") ICON="☁️" ;; # Broken clouds
-"09d" | "09n") ICON="🌧️" ;; # Shower rain
-"10d") ICON="🌦️" ;;         # Rain day
-"10n") ICON="🌧️" ;;         # Rain night
-"11d" | "11n") ICON="⛈️" ;; # Thunderstorm
-"13d" | "13n") ICON="❄️" ;; # Snow
-"50d" | "50n") ICON="🌫️" ;; # Mist
-*) ICON="❓" ;;              # Default
+temp=$(echo "$weather_result" | jq -r '.current.temperature_2m // empty')
+code=$(echo "$weather_result" | jq -r '.current.weather_code // empty')
+[ -n "$temp" ] && [ -n "$code" ] || fallback
+
+# WMO weather codes (https://open-meteo.com/en/docs)
+case "$code" in
+0) icon="☀️" ;;                        # Clear sky
+1 | 2) icon="🌤️" ;;                    # Mainly clear / partly cloudy
+3) icon="☁️" ;;                        # Overcast
+45 | 48) icon="🌫️" ;;                  # Fog
+51 | 53 | 55 | 56 | 57) icon="🌦️" ;;   # Drizzle
+61 | 63 | 65 | 66 | 67) icon="🌧️" ;;   # Rain
+71 | 73 | 75 | 77) icon="❄️" ;;        # Snow
+80 | 81 | 82) icon="🌧️" ;;             # Rain showers
+85 | 86) icon="🌨️" ;;                  # Snow showers
+95 | 96 | 99) icon="⛈️" ;;             # Thunderstorm
+*) icon="❓" ;;
 esac
 
-# Determine unit label
-if [ "$UNITS" = "metric" ]; then
-  LABEL="°C"
-else
-  LABEL="°F"
-fi
+temp_rounded=$(printf '%.0f' "$temp")
+printf '{"text":"%s %s°F","tooltip":"Weather: %s°F"}\n' "$icon" "$temp_rounded" "$temp_rounded"
+

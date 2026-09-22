@@ -36,7 +36,7 @@ hl.bind(secondMod .. " + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/theme-switc
 
 -- Power menu / audio visualizer
 hl.bind(mainMod .. " + Escape",
-  hl.dsp.exec_cmd("pgrep -x wlogout >/dev/null && pkill -x wlogout || wlogout"))
+  hl.dsp.exec_cmd("~/.config/hypr/scripts/powermenu.sh"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("kitty --class cava -e cava"))
 hl.bind(thirdMod .. " + M", hl.dsp.exec_cmd("kitty --class matrix -e unimatrix -i"))
 

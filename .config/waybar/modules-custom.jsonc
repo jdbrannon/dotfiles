@@ -21,25 +21,47 @@
   },
   "custom/power": {
     "format": "⏻",
-    "on-click": "$HOME/.config/hypr/scripts/Wlogout.sh",
-    "on-click-right": "$HOME/.config/hypr/scripts/ChangeBlur.sh",
+    "on-click": "$HOME/.config/hypr/scripts/powermenu.sh",
     "tooltip": true,
     "tooltip-format": "Logout Menu"
+  },
+  "custom/weather": {
+    "exec": "~/.config/waybar/scripts/weather.sh",
+    "return-type": "json",
+    "interval": 1800,
+    "tooltip": true
   },
   "custom/media-now-playing": {
     "exec": "~/.config/waybar/scripts/media-now-playing.sh",
     "escape": true,
-    "tooltip": false
+    "tooltip": false,
+    "on-click": "playerctl -p playerctld play-pause",
+    "on-click-right": "playerctl -p playerctld next",
+    "on-click-middle": "playerctl -p playerctld previous"
   },
   "custom/media-time": {
     "exec": "~/.config/waybar/scripts/media-time.sh",
     "escape": true,
     "tooltip": false,
-    "interval": 1
+    "interval": 1,
+    "on-click": "playerctl -p playerctld play-pause",
+    "on-click-right": "playerctl -p playerctld next",
+    "on-click-middle": "playerctl -p playerctld previous"
   },
   "custom/media-animation": {
     "exec": "~/.config/waybar/scripts/media-animation.sh",
     "escape": true,
-    "tooltip": false
+    "tooltip": false,
+    "on-click": "playerctl -p playerctld play-pause",
+    "on-click-right": "playerctl -p playerctld next",
+    "on-click-middle": "playerctl -p playerctld previous"
+  },
+  "custom/media-playpause": {
+    "exec": "~/.config/waybar/scripts/media-playpause.sh",
+    "escape": true,
+    "tooltip": false,
+    "on-click": "playerctl -p playerctld play-pause",
+    "on-click-right": "playerctl -p playerctld next",
+    "on-click-middle": "playerctl -p playerctld previous"
   }
 }

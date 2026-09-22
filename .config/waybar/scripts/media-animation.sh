@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
+source "$(dirname "$0")/media-status.sh"
+ensure_media_status_watcher
+
 bar="▁▂▃▄▅▆▇█"
 dict="s/;//g;"
-bars=6
+bars=8
 
 # creating "dictionary" to replace char with bar
 i=0
@@ -26,5 +29,10 @@ ascii_max_range = 7
 
 # read stdout from cava
 cava -p $config_file | while read -r line; do
-  echo $line | sed $dict
+  if [ "$(media_status)" = "Playing" ]; then
+    echo $line | sed $dict
+  else
+    echo ""
+  fi
 done
+

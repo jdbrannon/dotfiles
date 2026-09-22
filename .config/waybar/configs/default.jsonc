@@ -7,19 +7,14 @@
     "~/.config/waybar/workspaces.jsonc"
   ],
   "modules-left": [
-    "tray",
-    "group/media"
+    "group/media",
+    "group/system-info"
   ],
   "modules-center": [
     "hyprland/workspaces#rw"
   ],
   "modules-right": [
-    "pulseaudio",
-    "bluetooth",
-    "network",
-    "battery",
-    "clock",
-    "custom/notification",
-    "custom/power"
+    "group/control-center",
+    "group/moment"
   ]
 }

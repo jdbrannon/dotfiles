@@ -6,20 +6,38 @@
       "pulseaudio/slider"
     ]
   },
-  "group/connectivity": {
+  "group/control-center": {
     "orientation": "horizontal",
     "modules": [
-      "pulseaudio",
+      "network",
       "bluetooth",
-      "network"
+      "pulseaudio",
+      "battery",
+      "custom/notification"
     ]
   },
   "group/media": {
     "orientation": "horizontal",
     "modules": [
+      "custom/media-playpause",
       "custom/media-animation",
       "custom/media-now-playing",
       "custom/media-time"
+    ]
+  },
+  "group/system-info": {
+    "orientation": "horizontal",
+    "modules": [
+      "cpu",
+      "memory",
+      "temperature"
+    ]
+  },
+  "group/moment": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/weather",
+      "clock"
     ]
   }
 }

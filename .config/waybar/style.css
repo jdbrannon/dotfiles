@@ -7,6 +7,7 @@
   min-height: 0;
   padding: 0;
   margin: 0;
+  font-feature-settings: "tnum";
 }
 
 window#waybar {
@@ -22,6 +23,7 @@ tooltip {
 tooltip label {
   color: @fg0;
   padding: 6px;
+  font-family: monospace;
 }
 
 #workspaces {
@@ -64,55 +66,65 @@ tooltip label {
   transition: all .3s ease-in-out;
 }
 
-#battery,
-#volume,
-#clock,
-#tray,
-#pulseaudio,
-#bluetooth,
-#network,
-#connectivity,
 #custom-power,
-#custom-notification,
-#media{
+#media,
+#system-info,
+#control-center,
+#moment{
   background-color: @bg0;
   padding: 0 15px 0 15px;
-  margin: 12px 0 0 8px;
+  margin: 12px 0 0 6px;
   border-radius: 50px;
   border: 1px solid @bg1;
   color: @primary;
   min-width: 20px;
 }
 
+#tray,
+#custom-weather,
+#clock,
+#pulseaudio,
+#bluetooth,
+#network,
+#cpu,
+#memory,
+#temperuature {
+  margin: 0 14px 0 0;
+}
+
+#moment {
+  margin: 12px 8px 0 6px;
+}
+
+
 #custom-media-animation {
   font-size: 10px;
 }
 
+#custom-media-playpause {
+  font-size: 16px;
+  margin: 0 12px 0 0;
+}
+
 #custom-media-time {
-  margin: 0 0 0 12px;
+  margin: 0 12px 0 0;
+  min-width: 80px;
 }
 
 #custom-media-now-playing {
   color: @fg;
-  min-width: 160px;
+  min-width: 180px;
   margin: 0 0 0 12px;
+}
+
+#media {
+  margin: 12px 0 0 8px;
 }
 
 #custom-power {
   color: @fg;
   padding: 5px 10px 0 15px;
   margin: 12px 12px 0 8px;
-}
-
-#pulseaudio,
-#bluetooth,
-#network {
-  padding: 0 12px 0 12px;
-}
-
-#custom-notification {
-  color: @fg;
-  padding: 0 12px 0 15px;
 }
 
 #pulseaudio-slider {
