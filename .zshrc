@@ -104,13 +104,16 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^X^E' edit-command-line
 
+# Dotfiles
+alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+compdef _git dots
+alias ldots='lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+bindkey -M emacs -s 'cdots' 'dots commit -m ""\C-b'
+
 # Aliases
 alias ls='exa'
 alias vim='nvim'
 alias c='clear'
-alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-compdef _git dots
-alias ldots='lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 # Suffix Aliases
 alias -s md="bat"
