@@ -50,6 +50,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 30")
   hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
   hl.exec_cmd("nextcloud --background")
+  hl.exec_cmd("~/.config/hypr/scripts/pause-previous-media.sh &")
 end)
 
 -----------------------
