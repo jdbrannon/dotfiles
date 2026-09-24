@@ -28,7 +28,7 @@ selected=$(
   for wallpaper in "${wallpapers[@]}"; do
     name="$(basename "$wallpaper")"
     printf '%s\0icon\x1f%s\n' "$name" "$wallpaper"
-  done | rofi -dmenu -i -show-icons -p "Theme"
+  done | rofi -dmenu -i -show-icons -theme ~/.config/rofi/wallpaper-switcher.rasi
 ) || exit 0
 [[ -n "$selected" ]] || exit 0
 

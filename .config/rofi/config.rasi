@@ -1,1 +1,20 @@
+/*
+ * Base rofi config for the app runner (drun/run), used by keybinds.lua.
+ * Styling lives entirely in theme.rasi; this file only sets modes/behavior.
+ */
+
+configuration {
+	modi:                       "drun,run,filebrowser";
+	display-drun:               "Apps";
+	display-run:                "Run";
+	display-filebrowser:        "Files";
+	display-window:             "Windows";
+	hover-select:               true;
+	me-select-entry:            "MouseSecondary";
+	me-accept-entry:            "MousePrimary";
+	window-format:              "{w} · {c} · {t}";
+	dpi:						1;
+}
+
 @theme "theme"
+
