@@ -119,7 +119,7 @@
     "interval": 10,
     "format": "{}% ",
     "max-length": 10,
-    "on-click": "kitty --title=htop -e btop"
+    "on-click": "kitty --title=btop -e btop"
   },
   "memory": {
     "interval": 30,
@@ -148,6 +148,6 @@
       }
     ],
     "tooltip-format": "CPU: {temperatureC}°C",
-    "on-click": "kitty --title=htop -e btop"
+    "on-click": "kitty --title=btop -e btop"
   }
 }

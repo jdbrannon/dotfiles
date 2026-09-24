@@ -36,3 +36,4 @@ cava -p $config_file | while read -r line; do
   fi
 done
 
+
