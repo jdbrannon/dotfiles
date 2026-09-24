@@ -8,7 +8,7 @@ local fileManager = "thunar"
 local launcher    = "rofi -show drun -show-icons"
 local runner      = "rofi -show run"
 local browser     = "brave"
-local music       = "spotify"
+local music       = "~/.config/hypr/scripts/launch-spotify.sh"
 
 
 local mainMod = "SUPER"           -- Sets "Windows" key as main modifier

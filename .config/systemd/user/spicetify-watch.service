@@ -1,0 +1,6 @@
+[Unit]
+Description=Spicetify live theme watcher
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/spicetify -s watch
