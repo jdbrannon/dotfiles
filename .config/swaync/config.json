@@ -4,13 +4,12 @@
   "positionY": "top",
   "cssPriority": "user",
   "control-center-width": 380,
-  "control-center-height": 760,
+  "control-center-height": 640,
   "control-center-margin-top": 2,
   "control-center-margin-bottom": 2,
   "control-center-margin-right": 1,
   "control-center-margin-left": 0,
   "notification-window-width": 400,
-  "notification-icon-size": 48,
   "notification-body-image-height": 160,
   "notification-body-image-width": 200,
   "timeout": 4,
@@ -37,8 +36,6 @@
     }
   },
   "widgets": [
-    "label",
-    "buttons-grid",
     "mpris",
     "title",
     "dnd",
@@ -48,14 +45,10 @@
     "title": {
       "text": "Notifications",
       "clear-all-button": true,
-      "button-text": " 󰎟 "
+      "button-text": "󰃢"
     },
     "dnd": {
       "text": "Do not disturb"
-    },
-    "label": {
-      "max-lines": 1,
-      "text": " "
     },
     "mpris": {
       "image-size": 96,
@@ -64,30 +57,6 @@
     "volume": {
       "label": "󰕾",
       "show-per-app": true
-    },
-    "buttons-grid": {
-      "actions": [
-        {
-          "label": " ",
-          "command": "amixer set Master toggle"
-        },
-        {
-          "label": "",
-          "command": "amixer set Capture toggle"
-        },
-        {
-          "label": " ",
-          "command": "nm-connection-editor"
-        },
-        {
-          "label": "󰂯",
-          "command": "blueman-manager"
-        },
-        {
-          "label": "󰏘",
-          "command": "nwg-look"
-        }
-      ]
     }
   }
 }
