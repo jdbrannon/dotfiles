@@ -55,3 +55,8 @@ output_path = '~/.config/vesktop/themes/midnight-discord.css'
 input_path = '~/.config/matugen/templates/midnight-discord-transparent.css'
 output_path = '~/.config/vesktop/themes/midnight-discord-transparent.css'
 
+[templates.spicetify-tui]
+input_path = '~/.config/matugen/templates/spicetify-tui-colors.ini'
+output_path = '~/.config/spicetify/Themes/TUI/color.ini'
+post_hook = 'spicetify apply'
+

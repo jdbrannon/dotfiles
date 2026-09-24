@@ -7,6 +7,7 @@
 .config/rofi/colors.rasi
 .config/nvim/colors/matugen.vim
 .config/swaync/colors.css
+.config/spicetify/Themes/TUI/color.ini
 
 # Machine-specific state, rewritten by theme-switcher.sh
 .config/hypr/current_wallpaper
