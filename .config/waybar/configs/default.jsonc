@@ -7,14 +7,14 @@
     "~/.config/waybar/workspaces.jsonc"
   ],
   "modules-left": [
-    "group/media",
-    "group/system-info"
+    "group/system-info",
+    "group/media"
   ],
   "modules-center": [
     "hyprland/workspaces#rw"
   ],
   "modules-right": [
-    "group/control-center",
-    "group/moment"
+    "group/moment",
+    "group/control-center"
   ]
 }

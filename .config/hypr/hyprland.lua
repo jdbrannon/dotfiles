@@ -3,7 +3,6 @@
 -- EDIT THIS CONFIG ACCORDING TO THE WIKI INSTRUCTIONS.  --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
-
 -- This is an example Hyprland Lua config file.
 -- Refer to the wiki for more information.
 -- https://wiki.hypr.land/Configuring/Start/
@@ -35,7 +34,6 @@ require("hyprland.styles")
 require("hyprland.keybinds")
 require("hyprland.input")
 
-
 -------------------
 ---- AUTOSTART ----
 -------------------
@@ -46,11 +44,11 @@ require("hyprland.input")
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-  hl.exec_cmd("waybar & swaync & hypridle & awww-daemon")
-  hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 30")
-  hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
-  hl.exec_cmd("nextcloud --background")
-  hl.exec_cmd("~/.config/hypr/scripts/pause-previous-media.sh &")
+	hl.exec_cmd("waybar & swaync & hypridle & awww-daemon")
+	hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 30")
+	hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
+	hl.exec_cmd("nextcloud --background")
+	hl.exec_cmd("~/.config/hypr/scripts/pause-previous-media.sh &")
 end)
 
 -----------------------
@@ -71,20 +69,16 @@ end)
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
 -- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 
-
 ----------------
 ----  MISC  ----
 ----------------
 
 hl.config({
-  misc = {
-    force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-    disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
-  },
+	misc = {
+		force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
+		disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background. :(
+	},
 })
-
-
-
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
@@ -96,27 +90,27 @@ hl.config({
 -- Example window rules that are useful
 
 hl.window_rule({
-  -- Ignore maximize requests from all apps. You'll probably like this.
-  name           = "suppress-maximize-events",
-  match          = { class = ".*" },
+	-- Ignore maximize requests from all apps. You'll probably like this.
+	name = "suppress-maximize-events",
+	match = { class = ".*" },
 
-  suppress_event = "maximize",
+	suppress_event = "maximize",
 })
 -- suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
-  -- Fix some dragging issues with XWayland
-  name     = "fix-xwayland-drags",
-  match    = {
-    class      = "^$",
-    title      = "^$",
-    xwayland   = true,
-    float      = true,
-    fullscreen = false,
-    pin        = false,
-  },
+	-- Fix some dragging issues with XWayland
+	name = "fix-xwayland-drags",
+	match = {
+		class = "^$",
+		title = "^$",
+		xwayland = true,
+		float = true,
+		fullscreen = false,
+		pin = false,
+	},
 
-  no_focus = true,
+	no_focus = true,
 })
 
 -- Layer rules also return a handle.
@@ -129,36 +123,44 @@ hl.window_rule({
 
 -- Hyprland-run windowrule
 hl.window_rule({
-  name  = "move-hyprland-run",
-  match = { class = "hyprland-run" },
+	name = "move-hyprland-run",
+	match = { class = "hyprland-run" },
 
-  move  = "20 monitor_h-120",
-  float = true,
+	move = "20 monitor_h-120",
+	float = true,
 })
 
 hl.window_rule({
-  name   = "nm-connection-editor-float",
-  match  = { class = "nm-connection-editor" },
-  float  = true,
-  center = true,
+	name = "nm-connection-editor-float",
+	match = { class = "nm-connection-editor" },
+	float = true,
+	center = true,
 })
 
 hl.window_rule({
-  name   = "blueman-manager-float",
-  match  = { class = "blueman-manager" },
-  float  = true,
-  size   = "35% 45%",
-  -- blueman-manager ignores the size rule and keeps its natural ~1261px width,
-  -- so the offset accounts for that rather than the requested 35%.
-  center = true
+	name = "blueman-manager-float",
+	match = { class = "blueman-manager" },
+	float = true,
+	size = "35% 45%",
+	-- blueman-manager ignores the size rule and keeps its natural ~1261px width,
+	-- so the offset accounts for that rather than the requested 35%.
+	center = true,
 })
 
 hl.window_rule({
-  name   = "pwvucontrol-float",
-  match  = { class = "com.saivert.pwvucontrol" },
-  float  = true,
-  size   = "35% 45%",
-  center = true
+	name = "pwvucontrol-float",
+	match = { class = "com.saivert.pwvucontrol" },
+	float = true,
+	size = "35% 45%",
+	center = true,
+})
+
+hl.window_rule({
+	name = "steam-friends-float",
+	match = { class = "steam", title = "Friends List" },
+	float = true,
+	size = "35% 45%",
+	center = true,
 })
 
 -- hl.window_rule({
