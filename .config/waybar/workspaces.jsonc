@@ -373,7 +373,7 @@
       "class<org.pipewire.Helvum>": "󰓃",
       "class<localsend>": "",
       "class<PrusaSlicer|UltiMaker-Cura|OrcaSlicer>": "󰹛",
-      "class<Proton Mail>": "󰇮 ",
+      "title<Proton Mail>": "󰇮 ",
       "title<.*matrix.*|matrix>:": "󱔼 ",
       "title<.*btop.*|btop|.*htop.*|htop>": "󰍛 "
     }
