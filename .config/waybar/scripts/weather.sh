@@ -19,19 +19,18 @@ code=$(echo "$weather_result" | jq -r '.current.weather_code // empty')
 
 # WMO weather codes (https://open-meteo.com/en/docs)
 case "$code" in
-0) icon="☀️" ;;                        # Clear sky
-1 | 2) icon="🌤️" ;;                    # Mainly clear / partly cloudy
-3) icon="☁️" ;;                        # Overcast
-45 | 48) icon="🌫️" ;;                  # Fog
-51 | 53 | 55 | 56 | 57) icon="🌦️" ;;   # Drizzle
-61 | 63 | 65 | 66 | 67) icon="🌧️" ;;   # Rain
-71 | 73 | 75 | 77) icon="❄️" ;;        # Snow
-80 | 81 | 82) icon="🌧️" ;;             # Rain showers
-85 | 86) icon="🌨️" ;;                  # Snow showers
-95 | 96 | 99) icon="⛈️" ;;             # Thunderstorm
-*) icon="❓" ;;
+0) icon="☀️" ;;                      # Clear sky
+1 | 2) icon="🌤️" ;;                  # Mainly clear / partly cloudy
+3) icon="☁️" ;;                      # Overcast
+45 | 48) icon="🌫️" ;;                # Fog
+51 | 53 | 55 | 56 | 57) icon="🌦️" ;; # Drizzle
+61 | 63 | 65 | 66 | 67) icon="🌧️" ;; # Rain
+71 | 73 | 75 | 77) icon="❄️" ;;      # Snow
+80 | 81 | 82) icon="🌧️" ;;           # Rain showers
+85 | 86) icon="🌨️" ;;                # Snow showers
+95 | 96 | 99) icon="⛈️" ;;           # Thunderstorm
+*) icon="" ;;
 esac
 
 temp_rounded=$(printf '%.0f' "$temp")
 printf '{"text":"%s %s°F","tooltip":"Weather: %s°F"}\n' "$icon" "$temp_rounded" "$temp_rounded"
-

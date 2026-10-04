@@ -375,7 +375,9 @@
       "class<PrusaSlicer|UltiMaker-Cura|OrcaSlicer>": "󰹛",
       "title<Proton Mail>": "󰇮 ",
       "title<.*matrix.*|matrix>:": "󱔼 ",
-      "title<.*btop.*|btop|.*htop.*|htop>": "󰍛 "
+      "title<.*btop.*|btop|.*htop.*|htop>": "󰍛 ",
+      "class<.*zathura.*>": " ",
+      "class<.*nextcloud.*>": "󰘿 "
     }
   }
 }
