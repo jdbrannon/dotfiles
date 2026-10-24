@@ -377,7 +377,8 @@
       "title<.*matrix.*|matrix>:": "󱔼 ",
       "title<.*btop.*|btop|.*htop.*|htop>": "󰍛 ",
       "class<.*zathura.*>": " ",
-      "class<.*nextcloud.*>": "󰘿 "
+      "class<.*nextcloud.*>": "󰘿 ",
+      "title<.*Prometheus.*>": " "
     }
   }
 }

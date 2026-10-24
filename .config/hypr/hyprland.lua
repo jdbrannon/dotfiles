@@ -171,6 +171,14 @@ hl.window_rule({
 	center = true,
 })
 
+hl.window_rule({
+	name = "xarchiver-float",
+	match = { class = "xarchiver" },
+	float = true,
+	size = "35% 45%",
+	center = true,
+})
+
 -- hl.window_rule({
 --   name   = "cava-float",
 --   match  = { class = "cava" },
