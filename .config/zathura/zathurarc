@@ -1,0 +1,4 @@
+set synctex true
+set highlight-color "#ffff0066"
+set highlight-fg "#ff000066"
+set highlight-transition-time 5000

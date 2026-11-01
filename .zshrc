@@ -153,3 +153,5 @@ bindkey '^XC' copy-command
 # Skip comments
 setopt interactive_comments
 
+# Avoid ctrl + D killing the terminal
+setopt IGNORE_EOF
