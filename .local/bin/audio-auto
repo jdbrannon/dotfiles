@@ -1,0 +1,4 @@
+#!/bin/bash
+# Clear any manually chosen default output so WirePlumber priority rules decide again
+pw-metadata -n default -d default.configured.audio.sink
+pw-metadata -n default | grep "default.audio.sink"
