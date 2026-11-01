@@ -96,6 +96,8 @@ setopt hist_find_no_dups
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "$HOME/.zcompcache"
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
@@ -105,8 +107,18 @@ zle -N edit-command-line
 bindkey '^X^E' edit-command-line
 
 # Dotfiles
-alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-compdef _git dots
+dots() { /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME "$@" }
+# A function (not an alias) so this completer runs instead of the expanded git one
+_dots() {
+  if [[ $words[2] == add ]]; then
+    _files
+  else
+    words=(git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME "${(@)words[2,-1]}")
+    (( CURRENT += 2 ))
+    _git
+  fi
+}
+compdef _dots dots
 alias ldots='lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 bindkey -M emacs -s 'cdots' 'dots commit -m ""\C-b'
 
