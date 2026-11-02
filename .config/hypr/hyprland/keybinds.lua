@@ -41,7 +41,7 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("kitty --class cava -e cava"))
 hl.bind(thirdMod .. " + M", hl.dsp.exec_cmd("kitty --class matrix -e unimatrix -i"))
 
 
--- Close blueman-manager/pwvucontrol with Escape if one is focused; non_consuming
+-- Close pwvucontrol with Escape if it is focused; non_consuming
 -- means Escape still reaches whatever app is focused otherwise (e.g. Vim).
 hl.bind("Escape", hl.dsp.exec_cmd("~/.config/hypr/scripts/close-overlay-on-escape.sh"),
   { non_consuming = true })

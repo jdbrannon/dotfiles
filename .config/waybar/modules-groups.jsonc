@@ -37,7 +37,7 @@
     "orientation": "horizontal",
     "modules": [
       "custom/weather",
-      "clock"
+      "custom/clock"
     ]
   }
 }

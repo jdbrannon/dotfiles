@@ -49,7 +49,9 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 30")
 	hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
 	hl.exec_cmd("nextcloud --background")
+	hl.exec_cmd("/usr/lib/evolution-data-server/evolution-alarm-notify --autostart")
 	hl.exec_cmd("~/.config/hypr/scripts/pause-previous-media.sh &")
+	hl.exec_cmd("~/.config/hypr/scripts/first-run-setup.sh &")
 end)
 
 -----------------------
@@ -135,16 +137,6 @@ hl.window_rule({
 	name = "nm-connection-editor-float",
 	match = { class = "nm-connection-editor" },
 	float = true,
-	center = true,
-})
-
-hl.window_rule({
-	name = "blueman-manager-float",
-	match = { class = "blueman-manager" },
-	float = true,
-	size = "35% 45%",
-	-- blueman-manager ignores the size rule and keeps its natural ~1261px width,
-	-- so the offset accounts for that rather than the requested 35%.
 	center = true,
 })
 

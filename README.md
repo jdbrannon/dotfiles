@@ -23,5 +23,6 @@ git --git-dir="\$HOME/.dotfiles/" --work-tree="\$HOME" \\
 
 ### Post Setup
 
-1. Install kitty and zsh
-2. Set kitty as default terminal
+Package lists, GPU-specific packages, and the remaining manual steps (Nextcloud password and account) are in [fresh-arch-hyprland-install.md](https://github.com/jdbrannon/scripts/blob/main/docs/pc/linux/arch/fresh-arch-hyprland-install.md).
+
+After that, log out and back in. `hyprland.lua` handles the rest (calendar sync timer, default calendar, Spotify theme).
