@@ -37,7 +37,9 @@
     "return-type": "json",
     "interval": 30,
     "tooltip": true,
-    "on-click": "gnome-calendar"
+    "on-click": "~/.config/waybar/scripts/calendar-toggle.sh",
+    "on-click-right": "xdg-open https://nextcloud.jdbrannon.com/apps/calendar",
+    "on-click-middle": "gnome-calendar"
   },
   "custom/media-now-playing": {
     "exec": "~/.config/waybar/scripts/media-now-playing.sh",
