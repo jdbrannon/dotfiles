@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Minimal stand-in for GNOME Settings: only the Online Accounts panel is supported.
+case "${1:-online-accounts}" in
+online-accounts | goa | "") exec gnome-online-accounts-gtk ;;
+*) echo "gnome-control-center wrapper: unsupported panel '$1'" >&2; exit 1 ;;
+esac

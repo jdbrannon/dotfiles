@@ -28,8 +28,9 @@
   "custom/weather": {
     "exec": "~/.config/waybar/scripts/weather.sh",
     "return-type": "json",
-    "interval": 1800,
-    "tooltip": true
+    "tooltip": true,
+    "on-click": "~/.config/waybar/scripts/weather-open.sh",
+    "on-click-right": "pkill -USR1 -f scripts/weather.sh"
   },
   "custom/media-now-playing": {
     "exec": "~/.config/waybar/scripts/media-now-playing.sh",

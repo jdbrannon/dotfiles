@@ -15,7 +15,7 @@ ensure_media_status_watcher() {
   (
     flock -n 9 || exit 0
     playerctl -p playerctld --follow status 2>/dev/null | while read -r s; do
-      echo "$s" >"$MEDIA_STATUS_FILE"
+      echo "$s" >"$MEDIA_STATUS_FILE.tmp" && mv -f "$MEDIA_STATUS_FILE.tmp" "$MEDIA_STATUS_FILE"
     done
   ) 9>"$MEDIA_STATUS_LOCK" &
   disown

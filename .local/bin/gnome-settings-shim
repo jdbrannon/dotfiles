@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+"""Minimal org.gnome.Settings stand-in: handles the launch-panel action for a few panels."""
+import subprocess
+import sys
+
+import gi
+
+gi.require_version("Gio", "2.0")
+from gi.repository import Gio, GLib
+
+PANELS = {
+    "online-accounts": ["gnome-online-accounts-gtk"],
+    "datetime": ["notify-send", "Date & Time", "Managed via timedatectl / your system settings"],
+}
+
+
+class Shim(Gio.Application):
+    def __init__(self):
+        super().__init__(application_id="org.gnome.Settings", flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
+        action = Gio.SimpleAction.new("launch-panel", GLib.VariantType.new("(sav)"))
+        action.connect("activate", self.on_launch)
+        self.add_action(action)
+        self.hold()
+        GLib.timeout_add_seconds(30, self.quit)
+
+    def do_command_line(self, cmdline):
+        args = cmdline.get_arguments()[1:]
+        self.launch(args[0] if args else "online-accounts")
+        return 0
+
+    def on_launch(self, _action, param):
+        self.launch(param.unpack()[0])
+
+    def launch(self, panel):
+        cmd = PANELS.get(panel)
+        if cmd:
+            subprocess.Popen(cmd)
+        else:
+            print(f"unsupported panel: {panel}", file=sys.stderr)
+
+
+sys.exit(Shim().run(sys.argv))
