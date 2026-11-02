@@ -48,7 +48,7 @@
       "off": "󰂲"
     },
     "tooltip-format": "{status}",
-    "tooltip-format-on": "{status} ({device_alias})",
+    "tooltip-format-on": "{status}",
     "tooltip-format-off": "{status}",
     "tooltip-format-connected": "{status} ({device_alias})",
     "on-click": "kitty -e bluetui",
