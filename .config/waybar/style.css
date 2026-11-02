@@ -80,17 +80,41 @@ tooltip label {
   min-width: 20px;
 }
 
+#system-info,
+#moment,
+#control-center {
+  padding: 0;
+}
+
 #tray,
 #custom-weather,
-#clock,
 #custom-clock,
 #pulseaudio,
 #bluetooth,
 #network,
+#battery,
+#custom-notification,
 #cpu,
 #memory,
-#temperuature {
-  margin: 0 14px 0 0;
+#temperature {
+  margin: 0;
+  padding: 0 12px;
+  border-radius: 50px;
+  transition: background-color .2s ease-in-out;
+}
+
+#tray:hover,
+#custom-weather:hover,
+#custom-clock:hover,
+#pulseaudio:hover,
+#bluetooth:hover,
+#network:hover,
+#battery:hover,
+#custom-notification:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover {
+  background-color: alpha(@primary, 0.15);
 }
 
 #control-center {

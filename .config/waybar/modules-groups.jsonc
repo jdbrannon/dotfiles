@@ -36,8 +36,8 @@
   "group/moment": {
     "orientation": "horizontal",
     "modules": [
-      "custom/weather",
-      "custom/clock"
+      "custom/clock",
+      "custom/weather"
     ]
   }
 }

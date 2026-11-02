@@ -42,6 +42,7 @@
     "notifications"
   ],
   "widget-config": {
+    "notifications": {},
     "title": {
       "text": "Notifications",
       "clear-all-button": true,
