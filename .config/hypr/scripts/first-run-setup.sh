@@ -6,6 +6,13 @@ set -u
 
 have() { command -v "$1" >/dev/null 2>&1; }
 
+# waybar and swaync are launched from hyprland.lua; mask the packaged user
+# units so systemd/D-Bus activation can't start a second copy.
+for unit in waybar swaync; do
+  systemctl --user is-enabled "$unit.service" 2>/dev/null | grep -qx masked ||
+    systemctl --user mask "$unit.service" >/dev/null 2>&1
+done
+
 # Calendar sync timer (the "enabled" symlink isn't carried by dotfiles)
 if have vdirsyncer && ! systemctl --user is-enabled --quiet vdirsyncer.timer 2>/dev/null; then
   systemctl --user daemon-reload

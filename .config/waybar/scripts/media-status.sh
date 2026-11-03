@@ -10,10 +10,20 @@ MEDIA_STATUS_LOCK="${MEDIA_STATUS_FILE}.lock"
 # Starts the background writer if no other instance already holds the lock.
 # Safe to call from every consumer script; only one writer ever runs.
 ensure_media_status_watcher() {
-  [ -f "$MEDIA_STATUS_FILE" ] || echo "Paused" >"$MEDIA_STATUS_FILE"
+  [ -f "$MEDIA_STATUS_FILE" ] || echo "Stopped" >"$MEDIA_STATUS_FILE"
 
   (
     flock -n 9 || exit 0
+    # --follow prints nothing when no player exists, so seed and re-check
+    # the real state periodically to clear a stale Playing/Paused value.
+    (
+      while true; do
+        s=$(playerctl -p playerctld status 2>/dev/null) || s="Stopped"
+        [ "$s" = "$(cat "$MEDIA_STATUS_FILE" 2>/dev/null)" ] ||
+          { echo "$s" >"$MEDIA_STATUS_FILE.tmp" && mv -f "$MEDIA_STATUS_FILE.tmp" "$MEDIA_STATUS_FILE"; }
+        sleep 2
+      done
+    ) &
     playerctl -p playerctld --follow status 2>/dev/null | while read -r s; do
       echo "$s" >"$MEDIA_STATUS_FILE.tmp" && mv -f "$MEDIA_STATUS_FILE.tmp" "$MEDIA_STATUS_FILE"
     done

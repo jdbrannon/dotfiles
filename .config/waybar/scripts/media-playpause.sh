@@ -10,7 +10,9 @@ pause_icon=""
 tail -n1 -F "$MEDIA_STATUS_FILE" 2>/dev/null | while read -r status; do
   if [ "$status" = "Playing" ]; then
     echo "$pause_icon"
-  else
+  elif [ "$status" = "Paused" ]; then
     echo "$play_icon"
+  else
+    echo ""
   fi
 done
