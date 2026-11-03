@@ -16,15 +16,6 @@
       "custom/notification"
     ]
   },
-  "group/media": {
-    "orientation": "horizontal",
-    "modules": [
-      "custom/media-playpause",
-      "custom/media-animation",
-      "custom/media-now-playing",
-      "custom/media-time"
-    ]
-  },
   "group/system-info": {
     "orientation": "horizontal",
     "modules": [

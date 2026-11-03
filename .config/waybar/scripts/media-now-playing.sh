@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-zscroll -l 20 \
-  --delay 0.3 \
-  --update-check true \
-  "playerctl -p playerctld metadata --format '{{ artist }} - {{ title }}' 2>/dev/null" 2>/dev/null
-
-wait

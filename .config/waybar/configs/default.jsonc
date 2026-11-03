@@ -8,7 +8,7 @@
   ],
   "modules-left": [
     "group/system-info",
-    "group/media"
+    "custom/media"
   ],
   "modules-center": [
     "hyprland/workspaces#rw"

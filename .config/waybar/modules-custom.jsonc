@@ -41,34 +41,10 @@
     "on-click-right": "xdg-open https://nextcloud.jdbrannon.com/apps/calendar",
     "on-click-middle": "gnome-calendar"
   },
-  "custom/media-now-playing": {
-    "exec": "~/.config/waybar/scripts/media-now-playing.sh",
-    "escape": true,
-    "tooltip": false,
-    "on-click": "playerctl -p playerctld play-pause",
-    "on-click-right": "playerctl -p playerctld next",
-    "on-click-middle": "playerctl -p playerctld previous"
-  },
-  "custom/media-time": {
-    "exec": "~/.config/waybar/scripts/media-time.sh",
-    "escape": true,
-    "tooltip": false,
-    "interval": 1,
-    "on-click": "playerctl -p playerctld play-pause",
-    "on-click-right": "playerctl -p playerctld next",
-    "on-click-middle": "playerctl -p playerctld previous"
-  },
-  "custom/media-animation": {
-    "exec": "~/.config/waybar/scripts/media-animation.sh",
-    "escape": true,
-    "tooltip": false,
-    "on-click": "playerctl -p playerctld play-pause",
-    "on-click-right": "playerctl -p playerctld next",
-    "on-click-middle": "playerctl -p playerctld previous"
-  },
-  "custom/media-playpause": {
-    "exec": "~/.config/waybar/scripts/media-playpause.sh",
-    "escape": true,
+  "custom/media": {
+    "exec": "~/.config/waybar/scripts/media.py",
+    "return-type": "json",
+    "escape": false,
     "tooltip": false,
     "on-click": "playerctl -p playerctld play-pause",
     "on-click-right": "playerctl -p playerctld next",
