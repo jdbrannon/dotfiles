@@ -1,5 +1,6 @@
 [config]
 mode = "dark"
+contrast = 0.3
 
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.lua'
@@ -14,6 +15,7 @@ post_hook = 'pkill -SIGUSR2 waybar'
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
 output_path = '~/.config/kitty/themes/Matugen.conf'
 post_hook = "kitty +kitten themes --reload-in=all Matugen"
+type = "SchemeExpressive"
 
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava-colors.ini'
